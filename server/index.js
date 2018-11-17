@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, '..', 'dist')));
 const routes = require('./routes')
 app.use('/', routes);
 
-const port = process.env.PORT || '3000';
+const port = process.env.PORT || '80';
 app.set('port', port);
 
 const server = http.createServer(app);
