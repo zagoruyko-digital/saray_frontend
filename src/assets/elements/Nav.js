@@ -249,7 +249,9 @@ class Nav extends React.Component {
                         <Link to={'/'}>
                             <Button>Главная страница</Button>
                         </Link>
-                        <Button>Новости</Button>
+                        <Link to={'/news'}>
+                            <Button>Новости</Button>
+                        </Link>
                         <Dropdown text={'Информация'}>
                             <Button>Цены</Button>
                             <Button>Правила студии</Button>

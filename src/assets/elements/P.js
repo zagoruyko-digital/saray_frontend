@@ -29,7 +29,7 @@ const Text = styled.p`
         ''
     }
 
-    ${props => props.tall ? 'line-height: 1.25rem;' : ''}
+    ${props => props.tall ? 'line-height: 1.75rem;' : ''}
     
     ${
         props =>
