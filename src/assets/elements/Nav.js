@@ -6,21 +6,24 @@ import styled from 'styled-components';
 import { API, isAuthenticated, getAccessToken, getRefreshToken } from '../../services/API';
 
 import Button from '../elements/Button';
-import Theme from '../../styles/Theme';
+import Theme from '../../styles/Style';
 
 const Div = styled.div`
     position: relative;
+
+    ${props => props.active ? 'transform: translateX(250px);' : 'transform: translateX(0px);'}
+    
+    transition: transform .2s ease-in-out;
 `;
 
 const Drawer = styled.nav`
     position: absolute;
     z-index: 100;
     top: 0;
-    ${props => props.active ? 'left: 0;' : 'left: -250px;'}
 
     padding: 20px 10px;
     width: 250px;
-    height: 100vh;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
@@ -222,7 +225,7 @@ class Nav extends React.Component {
 
     render() {
         return (
-            <Div>
+            <Div active={this.state.active}>
                 <Drawer active={this.state.active}>
                     <Drawer__Toggler onClick={this.toggleDrawer}>
                         <FaBars />
@@ -266,7 +269,6 @@ class Nav extends React.Component {
                             <Button>Проведение мероприятий</Button>
                             <Button>Идеальное свидание</Button>
                         </Dropdown>
-                        <Button>Услуги</Button>
                         <Button>Выездная фотосессия</Button>
                         <Button>Печать</Button>
                     </Drawer__List>

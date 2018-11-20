@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Theme from '../../styles/Theme';
+import Theme from '../../styles/Style';
 
 const Container = styled.span`
     min-width: 64px;
@@ -20,9 +20,9 @@ const Container = styled.span`
 
     cursor: pointer;
 
-    ${props => props.mb ? 'margin-bottom: ' + props.mb + ';' : ''}
-    ${props => props.mt ? 'margin-top: ' + props.mt + ';' : ''}
-    ${props => props.icon ? 'padding-left: 12px; padding-right: 16px;' : 'padding-left: 16px; padding-right: 16px;'}
+    ${props => props.mb     ?   'margin-bottom: ' + props.mb + ';' : ''}
+    ${props => props.mt     ?   'margin-top: ' + props.mt + ';' : ''}
+    ${props => props.icon   ?   'padding-left: 12px; padding-right: 16px;' : 'padding-left: 16px; padding-right: 16px;'}
     
     ${
         props =>

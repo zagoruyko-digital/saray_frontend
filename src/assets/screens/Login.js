@@ -7,7 +7,7 @@ import { API, isAuthenticated, getAccessToken, getRefreshToken } from '../../ser
 import Nav from '../elements/Nav';
 import H3 from '../elements/H3';
 import Button from '../elements/Button';
-import Theme from '../../styles/Theme';
+import Theme from '../../styles/Style';
 
 const Section = styled.section`
     position: relative;
@@ -86,7 +86,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-        const url = 'http://' + API.development + '/login';
+        const url = 'http://' + API.development + '/login/';
 
         fetch(url, {
             method: 'POST',

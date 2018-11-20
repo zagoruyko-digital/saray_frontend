@@ -12,7 +12,8 @@ const Container = styled.div`
 
     display: grid;
     grid-gap: 5px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+    grid-template-columns: 1fr 1fr 1fr;
 `;
 
 const Card = styled.div`
@@ -31,6 +32,10 @@ const Card = styled.div`
         max-width: 80vw;
         width: 400px;
         height: 600px;
+    }
+
+    @media (max-width: 575.98px) {
+        margin-bottom: 45px;
     }
 `;
 
@@ -95,7 +100,7 @@ class NewsList extends React.Component {
                             <div>
                                 <Card__Cover style={{backgroundImage: 'url(' + item.cover + ')'}} />
                                 <Card__Footer>
-                                    <H3 mt={'20px'} capitalize black>{item.title}</H3>
+                                    <H3 mt={'15px'} capitalize black>{item.title}</H3>
                                     <P mt={'5px'} uppercase primary>{item.manager.user.first_name + ' ' + item.manager.user.last_name}</P>
                                 </Card__Footer>
                             </div>

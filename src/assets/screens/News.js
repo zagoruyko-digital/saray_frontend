@@ -1,40 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import Section from '../elements/Section';
+import Drawer from '../elements/Drawer';
+import Header from '../elements/Header';
 import NewsList from '../views/NewsList';
-import Nav from '../elements/Nav';
-import H2 from '../elements/H2';
-import P from '../elements/P';
-import Button from '../elements/Button';
-import Theme from '../../styles/Theme';
-
-const Section = styled.section`
-    position: relative;
-    overflow: hidden;
-
-    min-height: 100vh;
-`;
-
-const Header = styled.header`
-    margin-top: 50px;
-
-    padding: 0 10%;
-`;
 
 class News extends React.Component {
     render() {
         return (
-            <div>
-                <Nav />
-                <Section>
-                    <Header>
-                        <P mb={'10px'} uppercase primary>— Будьте в курсе событий</P>
-                        <H2 mb={'10px'} capitalize black>Новости фотостудии</H2>
-                        <P primary tall pr={'30%'}>С другой стороны рамки и место обучения кадров требуют от нас анализа направлений прогрессивного развития. Повседневная практика показывает, что укрепление и развитие структуры позволяет выполнять важные задания по разработке форм развития.</P>
-                        <NewsList></NewsList>
-                    </Header>
-                </Section>
-            </div>
+            <Section>
+                <Drawer />
+                <Header caption={'Будьте в курсе событий'} title={'Новости фотостудии'} description={'Товарищи! постоянное информационно-пропагандистское обеспечение нашей деятельности в значительной степени обуславливает создание систем массового участия. Таким образом укрепление и развитие структуры требуют определения и уточнения систем массового участия.'} />
+                <NewsList></NewsList>
+            </Section>
         )
     }
 }

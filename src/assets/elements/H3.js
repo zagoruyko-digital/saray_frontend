@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import Theme from '../../styles/Theme';
+import Theme from '../../styles/Style';
 
 const Text = styled.h3`
     font-size: 1.5rem;
