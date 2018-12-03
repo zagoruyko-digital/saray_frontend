@@ -7,6 +7,7 @@ import { FaBars, FaArrowLeft, FaHome, FaNewspaper, FaInfo, FaHandsHelping, FaCam
 
 import { API, isAuthenticated, getAccessToken, getRefreshToken } from '../../services/API';
 
+import Snackbar from '../elements/Snackbar';
 import Text from '../selectors/Text';
 import Theme from '../../styles/Style';
 
@@ -38,6 +39,7 @@ class User extends React.Component {
         this.state = {
             isAuthenticated: false,
             loading: false,
+            error: false,
             data: []
         };
     }
@@ -70,7 +72,9 @@ class User extends React.Component {
                 });
             })
             .catch(error => {
-                console.log(error)
+                this.setState({
+                    error: new Error(error).message
+                });
             })
         }
     }
@@ -81,29 +85,17 @@ class User extends React.Component {
         if (loading) {
             return (
                 <Header>
+                    <div>
+                        <Header__Image>
+                            <Loader type={'Triangle'} color={Theme.white} width={'30'} height={'30'} />
+                        </Header__Image>
+                    </div>
+                    <div>
+                        <Text selector={'H3'} mb={'10px'} extrabold capitalize black><Skeleton /></Text>
+                        <Link to={'/user'} style={{color: Theme.secondary_}}>Личный кабинет</Link>
+                    </div>
                     {
-                        this.state.isAuthenticated ?
-                            <>
-                                <div>
-                                    <Header__Image>
-                                        <Loader type={'Triangle'} color={Theme.white} width={'30'} height={'30'} />
-                                    </Header__Image>
-                                </div>
-                                <div>
-                                    <Text selector={'H3'} mb={'10px'} extrabold capitalize black><Skeleton /></Text>
-                                    <Link to={'/user'} style={{color: Theme.secondary_}}>Личный кабинет</Link>
-                                </div>
-                            </>
-                        :
-                            <>
-                                <div>
-                                    <Text selector={'H3'} extrabold capitalize black center style={{fontSize: '2.3rem'}}>SARAY</Text>
-                                    <Text selector={'P'} extrabold capitalize black center>PHOTO STUDIO</Text>
-                                </div>
-                                <div>
-                                <Link to={'/login'} style={{color: Theme.secondary_, display: 'flex', justifyContent: 'center'}}>Войти или зарегистрироваться</Link>
-                                </div>
-                            </>
+                        this.state.error ? <Snackbar text={'Ошибка! Не удалось соединиться с сервером!'} /> : null
                     }
                 </Header>
             )
@@ -288,6 +280,9 @@ const Body__Item = styled(Link)`
     font-size: 1rem;
     font-weight: 400;
 
+    border-left: 7px solid;
+    border-color: ${Theme.white};
+
     & svg {
         margin-right: 8px;
 
@@ -296,7 +291,7 @@ const Body__Item = styled(Link)`
     }
 
     &:hover {
-        box-shadow: inset 7px 0 0 0 ${Theme.secondary_};
+        border-color: ${Theme.secondary_};
     }
 
     &:hover svg {

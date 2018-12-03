@@ -29,7 +29,7 @@ function Home() {
     return (
             <Section_>
                 <Drawer />
-                <BackgroundVideo loop autoPlay playsInline muted src={'http://provocateur-eda.ru/static/video.mp4'} />
+                <BackgroundVideo loop autoPlay playsInline muted src={'http://138.197.142.45:8000/static/background.mp4'} />
                 <svg width={'100%'} height={'100%'} viewBox={'0 0 325 140'} preserveAspectRatio="xMidYMid slice">
                     <defs>
                         <mask id={'overlay'}>

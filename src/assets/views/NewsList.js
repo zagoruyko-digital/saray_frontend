@@ -16,7 +16,7 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
 `;
 
-const Card = styled.div`
+const Card = styled(Link)`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +96,7 @@ class NewsList extends React.Component {
             <Container>
                 {
                     this.state.data.map((item) =>
-                        <Card>
+                        <Card to={'/news/' + item.id} key={item.id}>
                             <div>
                                 <Card__Cover style={{backgroundImage: 'url(' + item.cover + ')'}} />
                                 <Card__Footer>

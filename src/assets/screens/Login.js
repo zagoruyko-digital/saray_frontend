@@ -86,7 +86,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(event) {
-        const url = 'http://' + API.development + '/login/';
+        const url = 'http://' + API.production + '/login/';
 
         fetch(url, {
             method: 'POST',
