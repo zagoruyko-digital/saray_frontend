@@ -1,9 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
 
-import Section from '../elements/Section';
+//import Section from '../elements/Section';
 import Drawer from '../elements/Drawer';
 import Header from '../elements/Header';
-import NewsList from '../views/NewsList';
+//import NewsList from '../views/NewsList';
+import NewsList from '../views/NewsList/index';
+
+const Section = styled.section`
+    position: relative;
+    overflow: hidden;
+    
+    width: 100%;
+`;
 
 class News extends React.Component {
     render() {

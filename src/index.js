@@ -4,7 +4,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from '../src/assets/screens/Home';
 import News from '../src/assets/screens/News';
-import NewsReader from '../src/assets/views/NewsReader';
+//import NewsReader from '../src/assets/views/NewsReader';
+import NewsReader from './assets/views/NewsList/NewsReader/index';
 import Login from '../src/assets/screens/Login';
 import NotFound from './assets/screens/NotFound';
 
