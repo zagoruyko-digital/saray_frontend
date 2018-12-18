@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from 'react-dom'
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Home from '../src/assets/screens/Home';
+/* import Home from '../src/assets/screens/Home';
 import News from '../src/assets/screens/News';
-//import NewsReader from '../src/assets/views/NewsReader';
+import NewsReader from '../src/assets/views/NewsReader';
 import NewsReader from './assets/views/NewsList/NewsReader/index';
 import Login from '../src/assets/screens/Login';
 import NotFound from './assets/screens/NotFound';
@@ -19,12 +19,14 @@ const App = () => (
         <Route path={'/login'} component={Login} />
         <Route component={NotFound} />
     </Switch>
-);
+); */
 
 
 import { spring, AnimatedSwitch } from 'react-router-transition';
+import './styles/index.css';
 
 import HomePage from './assets/HomePage';
+import SignInPage from './assets/SignInPage';
 import BookingPage from './assets/BookingPage';
 import NewsPage from './assets/NewsPage';
 import NewsView from './assets/NewsPage/List/NewsView';
@@ -68,6 +70,7 @@ const AppNewAnimated = () => (
         className="route-wrapper"
     >
         <Route exact path={'/'} component={HomePage} />
+        <Route exact path={'/signin'} component={SignInPage} />
         <Route exact path={'/booking'} component={BookingPage} />
         <Route exact path={'/news'} component={NewsPage} />
         <Route path={'/news/:id'} component={NewsView} />
@@ -78,6 +81,7 @@ const AppNewAnimated = () => (
 const AppNew = () => (
     <Switch>
         <Route exact path={'/'} component={HomePage} />
+        <Route exact path={'/signin'} component={SignInPage} />
         <Route exact path={'/booking'} component={BookingPage} />
         <Route exact path={'/news'} component={NewsPage} />
         <Route path={'/news/:id'} component={NewsView} />

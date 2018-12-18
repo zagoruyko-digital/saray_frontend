@@ -29,7 +29,7 @@ export default class List extends React.Component {
             loading: true
         });
 
-        const url = 'http://' + API.production + API.v0 + 'news/';
+        const url = 'http://' + API.production + API.v0 + 'categoryq/';
 
         fetch(url, {
             method: 'GET',
@@ -94,42 +94,22 @@ export default class List extends React.Component {
                     }
                 </Filters>
                 <Grid>
-                    <Card>
-                        <div>
-                            <Text selector={'H3'} mb={'10px'} bold black>Сanon DX650S</Text>
-                            <Text selector={'P'} mb={'10px'} light primary>Значимость этих проблем настолько очевидна, что реализация</Text>
-                        </div>
-                        <Card__Image>
-                            <div style={{backgroundImage: 'url(' + 'https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' + ')'}} />
-                        </Card__Image>
-                        <div>
-                            <Action selector={'Button'}>Подробнее</Action>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div>
-                            <Text selector={'H3'} mb={'10px'} bold black>Сanon DX650S</Text>
-                            <Text selector={'P'} mb={'10px'} light primary>Значимость этих проблем настолько очевидна, что реализация</Text>
-                        </div>
-                        <Card__Image>
-                            <div style={{backgroundImage: 'url(' + 'https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' + ')'}} />
-                        </Card__Image>
-                        <div>
-                            <Action selector={'Button'}>Подробнее</Action>
-                        </div>
-                    </Card>
-                    <Card>
-                        <div>
-                            <Text selector={'H3'} mb={'10px'} bold black>Сanon DX650S</Text>
-                            <Text selector={'P'} mb={'10px'} light primary>Значимость этих проблем настолько очевидна, что реализация</Text>
-                        </div>
-                        <Card__Image>
-                            <div style={{backgroundImage: 'url(' + 'https://images.pexels.com/photos/243757/pexels-photo-243757.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' + ')'}} />
-                        </Card__Image>
-                        <div>
-                            <Action selector={'Button'}>Подробнее</Action>
-                        </div>
-                    </Card>
+                    {
+                        this.state.data.map((item) =>
+                            <Card>
+                                <div>
+                                    <Text selector={'H3'} mb={'10px'} bold black>{item.title}</Text>
+                                    <Text selector={'P'} mb={'10px'} light primary>{item.description}</Text>
+                                </div>
+                                <Card__Image>
+                                    <div style={{backgroundImage: 'url(' + item.cover + ')'}} />
+                                </Card__Image>
+                                <div>
+                                    <Action selector={'Button'}>Подробнее</Action>
+                                </div>
+                            </Card>
+                        )
+                    }
                 </Grid>
             </>
         )

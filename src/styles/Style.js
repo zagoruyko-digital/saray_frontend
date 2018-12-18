@@ -16,9 +16,7 @@ export const media = Object.keys(sizes).reduce((acc, label) => {
 
 const ThemePrimary = {
     primary: '#4D4D4D',
-    primary_: '#F5F7F8',
-    secondary: '#95AAC9',
-    secondary_: '#188FF2',
+    secondary: '#018CF5',
     black: '#2D2D2D',
     white: '#FDFDFD',
 };
